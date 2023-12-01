@@ -1,0 +1,71 @@
+<!--
+	텍스트 관련 CSS
+	=> font-size, font-family, font-weight
+	=> color
+	*** 1. text-decoration : none, underline, overline
+		=> 메뉴, <a>
+	2. text-transform : none, uppercase, lowercase
+	3. text-shadow
+	*** 4. white-space
+	*** 5. letter-spacing
+	6. word-spacing	
+	7. text-algin : 정렬 => left/center/right
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	ul{
+		width: 700px;
+		background-color: #fc6;
+		color: black;
+	}
+	li{
+		width: auto;
+		list-style: none;
+		display: inline-block;
+		text-transform: uppercase;
+		/* text-transform: upppercase; */
+		/* 사용처 : 로고 문자열 */
+	}
+	a{
+		color: black;
+		text-decoration: none;
+		text-shadow: 5px 5px 3px #f00;
+	}
+	a:hover{
+		color: white;
+		text-decoration: overline;
+	}
+	table{
+		width: 600px;
+	}
+	pre{
+		white-space: pre-wrap;/* 자동 줄바꿈*/
+		/*letter-spacing: 1.2em; 자간*/
+	}
+</style>
+
+</head>
+<body>
+	<ul>
+		<li><a href=#>Home</a></li>
+		<li><a href=#>Member</a></li>
+		<li><a href=#>Free Board</a></li>
+		<li><a href=#>Recommand</a></li>
+		<li><a href=#>Mypage</a></li>
+	</ul>
+	<table>
+		<tr>
+			<td><pre>2023 한국시리즈 MVP는 오지환 선수였습니다. 오지환 선수의 활약은 시리즈 MVP를 받기에 충분했습니다. 기자단 투표에서 무려 86%의 득표율(투표 인원 93표 중 80표)을 획득했을 정도였으니까요.
+
+잊지 말아야 할 2위 선수도 있습니다. 한국시리즈에서 그 선수의 역할과 활약도도 오지환 선수 못지않았기 때문입니다. 특히 1차전 패배 후 2차전 패배의 일보 직전까지 몰려있던 LG트윈스가 2차전을 잡고 분위기 전환을 만들 수 있었던 데에는 바로 이 선수의 역전 결승 투런홈런이 있었습니다. 바로 올해 FA로 LG 트윈스에 와서 우승 청부사가 됐던 포수 박동원 선수였습니다.</pre></td>
+		</tr>
+	</table>
+</body>
+</html>
