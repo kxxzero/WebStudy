@@ -1,0 +1,111 @@
+<!--
+	
+	<table> 태그 대체
+	===============
+	<table> => display : table
+	<tr> => display : table-row
+	<th> => display : table-column
+	<td> => display : table-cell
+	<caption> => display : table-caption
+	=> 회원가입 / 로그인
+	
+	=> none, inline, inline-block, block
+	=> margin, padding, border
+		=> top, right, border
+		========================= width, style, color
+		=> top, right, bottom, left
+		=> background => 170page
+			배경색/배경이미지
+			=> background-color
+			=> background-image : 이미지 크기가 작으면 repeat => 반복
+			=> background-size : default(원래 사이즈)
+								cover : 축소 / 확대
+								width, height 지정
+			=> background-clip : 범위 지정
+			=> background-position : 위치 지정
+			이미지 위에 문자
+		=> position => 메뉴, 지도
+		=> 반응형 : @media
+		=> 라이브러리 : bootstrap
+		=========================
+		javascript : 기본 문법
+					함수
+					이벤트
+					내장객체
+		라이브러리 : jquery(Ajax)
+	
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	
+	#wrapper{
+		border: 3px solid black;
+		width: 500px;
+		margin-left: 150px;
+		border-radius: 10px;
+	}
+	#joinForm{
+		display: table;
+		margin: 0 auto;
+		border-collapse: collapse;
+	}
+	/* <table> = <caption> */
+	#joinForm h1{
+		display: table-caption;
+		font-size: 15px;
+		text-align: center;
+		padding: 5px;
+		margin-bottom: 10px;
+		width: 450px;
+		color: white;
+		background-color: black;
+	}
+	#joinForm p{
+		display: table-row;
+		padding: 5px;
+		border-bottom: 1px solid #6b6b6b;
+	}
+	#joinForm label{
+		display: table-cell;
+		padding-left: 10px;
+	}
+	#joinForm #userId{
+		width: 100px;
+	}
+	#joinForm #userPwd{
+		width: 80px;
+	}
+	#joinForm #userName{
+		width: 100px;
+	}
+	#joinForm #cellstyle{
+		display: table-cell;
+		padding-left: 5px;
+	}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<form id="joinForm">
+			<h1><span>회원가입</span></h1>
+			<p>
+				<label for="userId">ID</label>
+				<input type="text" name="id" id="userId" class="cell">
+			</p>
+			<p>
+				<label for="userPwd">Password</label>
+				<input type="text" name="pwd" id="userPwd" class="cell">
+			</p>
+			<p>
+				<label for="userName">Name</label>
+				<input type="text" name="Name" id="userName" class="cell">
+			</p>
+		</form>
+	</div>
+</body>
+</html>

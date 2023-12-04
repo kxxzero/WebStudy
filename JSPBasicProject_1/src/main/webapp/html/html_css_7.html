@@ -1,0 +1,57 @@
+<!--
+	
+	각 태그마다 속성
+	===============
+	inline :  
+		=====	=====	=====
+	block : 태그가 브라우저 한 줄 전체를 차지하고 있음
+		=====
+		=====
+		=====
+		<div> <ol> <ul> <form> <table>
+	=> 변경 시 사용하는 CSS => display(<table>을 대체)
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	h1{
+		background-color: green;
+	}
+	span{
+		background-color: blue;
+	}
+	img{
+		width: 180px;
+		height: 280px;
+		display: block;
+		margin-top: 20px;
+	}
+	.box1, .box2, .box3{
+		width: 150px;
+		height: 150px;
+		background-color: red;
+		margin-top: 10px;
+	}
+	/*
+		width, height가 지정된 경우에는 inline-block
+	*/
+</style>
+</head>
+<body>
+	<!--<h1>Hello</h1>
+	<span></span>-->
+	<img src="../image/m1.jpg">
+	<img src="../image/m2.jpg">
+	<img src="../image/m3.jpg">	
+	
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	
+</body>
+</html>
