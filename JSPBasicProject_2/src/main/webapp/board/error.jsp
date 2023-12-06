@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<img src="https://content.surfit.io/thumbs/image/Kvko3/4bd87/184446559464aff5758f8b0.jpeg/cover-center-2x.webp" width=800 height=500>
+	<center>
+		<img src="https://content.surfit.io/thumbs/image/Kvko3/4bd87/184446559464aff5758f8b0.jpeg/cover-center-2x.webp" width=800 height=500>
+	</center>
 </body>
 </html>

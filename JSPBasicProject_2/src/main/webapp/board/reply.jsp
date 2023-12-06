@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.sist.dao.*" %>
+    pageEncoding="UTF-8"%>
+    
+<%
+    String no=request.getParameter("no");
+    String curpage=request.getParameter("page");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,18 +22,22 @@
 	a:hover{
 		color: green;
 		text-decoration: underline;		
-	}	
+	}
+		
 </style>
 </head>
 <body>
 	<center>
 		<img id="main" src="https://i0.wp.com/aikidonews.co.kr/wp-content/uploads/2017/03/QA-e1488530256249.jpg?resize=500%2C269" width="480" height="200">
-		<form method="post" action="insert_ok.jsp">
+		<form method="post" action="reply_ok.jsp">
 			<table class="table_content" width=800>
 				<tr>
 					<th width=20%>이름</th>
 					<td width="80%">
 						<input type=text name=name size=15 required>
+						<%-- 감춘 다음 데이터를 전송 : hidden --%>
+						<input type="hidden" name="pno" value="<%=no%>">
+						<input type="hidden" name="page" value="<%=curpage%>">
 					</td>
 				</tr>
 				
@@ -55,7 +64,7 @@
 				
 				<tr>
 					<td colspan="2" class="text-center">
-						<button>글쓰기</button>
+						<button>답변</button>
 						<input type="button" value="취소" onclick="javascript:history.back()">
 					</td>
 				</tr>
