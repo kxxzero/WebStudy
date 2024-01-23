@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+	.container{
+		margin-top: 50px;
+	}
+	.row{
+		margin: 0 auto;
+		width: 450px;
+	}
+	h1{
+		text-align: center;
+	}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#account').change(function(){
+			let count=$(this).val()
+			// val() => input, value, select, textarea
+			// attr() => img, a, span
+			// text() => th, td, li
+			// html() => 외부 데이터 출력 시 주로 사용 => 한 줄만 출력
+			// append() => 여러 줄 출력
+			// hide() / show()
+			
+			let price=$('#price').attr("data-price")
+			let total=count*price
+			$('#total').text(total+"원")
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			수량 : <select id="account" class="input-sm">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>				
+			</select>
+			<span data-price="10000" id="price">10,000원</span>
+			<p></p>
+			총액 : <span id="total"></span>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	1. 	SQL 문장을 저장하는 공간 => SqlSessionFactory => SQL 문장을 
+			=> 라이브러리는 자바 소스를 변경할 수 없음 => 변경, 요청 시 XML 사용
+				=> Spring / MyBatis
+				=> 웹 => 톰캣(server.xml, web.xml)
+	2.	mapper는 기본적으로 table 당 1개씩 생성
+		Config는 1개만 존재 => 공통
+			=> 	VO 등록, mapper 등록, 오라클 연결
+	3.	mapper
+			=> 	<select id="" resultType="" parameterType="">
+				- id : 구분자 (중복 불가)
+				- resultType : SQL 문장 실행 후 받는 변수 => VO, String, int...
+					SELECT COUNT(*) FROM table_name
+						=> resultType="int"
+					SELECT pwd FROM table_name
+						=> resultType="string"
+					SELECT count(*), avg(sal), sum(sal) FROM table_name
+						=> resultType="hashmap"
+				- parameterType : ?에 값을 부여
+				
+					WHERE name=?
+					ps.setString(1, "")
+					parameterType="string"
+					
+					WHERE name=? AND id=? => VO, hashmap
+					=> VO
+					=> <resultMap>
+	4. ?에 값을 채우는 경우
+		#{}., ${} => ''없음 => 테이블명, 컬럼명에서 주로 사용
+					 "FROM ${tab}
+					 
+	5. 추가
+		<insert> => resultType 속성이 없음
+				 => parameterType 속성 사용 => ?에 값을 채움
+			=> 자동 증가 번호
+				<selectKey>, 서브쿼리, 시퀀스
+	6. <update>, <delete>
+	7. 복잡한 SQL 문장이 여러 번 반복될 경우
+		<sql> => <include>
+	8. <foreach collection="배열, list" item="" = IN, 검색
+	9. <trim>
+		prefix : 접두어 => 앞에 추가 => OR, AND, (
+		suffix : 접미어 => OR, AND, )
+	
+		prefixOverrides : 제거
+		suffixOverrides : 제거
+		=> name / subject
+		
+		WHERE
+		<if test="column==name">
+			name LIKE ...
+		</if>
+		
+		<if test="column==subject">
+			subject LIKE ...
+		</if>
+		
+		<if test="column==content">
+			content LIKE ...
+		</if>
+		
+	10. <if test="">
+	11. <choose>
+			<when text=""></when>
+			<when text=""></when>
+			<otherwise></otherwise>
+		</choose>
+		========================= JSTL 동일
+	12. <where>
+		<set>
+	13. 조인 ==>
+			기본 : table 당 VO는 1개 사용 => VO를 포함해서 사용 => 포함 / 단독...
+		
+ -->
+<mapper namespace="com.sist.dao.music-mapper">
+	<select id="musicFindData" resultType="MusicVO" parameterType="hashmap">
+		SELECT no, title, singer, poster, state, album, idcrement 
+		FROM genie_music 
+		WHERE
+		<trim prefixOverrides="OR">
+			<!-- 
+				for(String fs:fsArr)
+					item	collection
+				prefixOverrides : 제거 / suffixOverrides
+				prefix : 추가 / suffix
+			 -->
+		
+			<foreach collection="fsArr" item="fs">
+				<trim prefix="OR">
+					<choose>
+						<!-- 인식 '' => 비교 시 정수로 변환 => 문자열 변환 -->
+						<when test="fs=='T'.toString()">
+							title LIKE '%'||#{ss}||'%'
+						</when>
+						
+						<when test="fs=='T'.toString()">
+							singer LIKE '%'||#{ss}||'%'
+						</when>
+						
+						<when test="fs=='T'.toString()">
+							album LIKE '%'||#{ss}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</select>
+</mapper>

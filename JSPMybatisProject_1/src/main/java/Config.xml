@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<!-- getConnection / disConnection 
+	 #{name}	${vo.name]	vo.getName()
+	 =vo.getName()
+-->
+<configuration>
+	<!-- 
+		configuration 안에 위치할 수 있는 목록 => 순서에 맞게 입력해야 함
+		예) properties?, settings?, typeAliases?, typeHandlers?, objectFactory?, objectWrapperFactory?, reflectorFactory?, plugins?, environments?, databaseIdProvider?, mappers?
+		
+		* 자주 쓰는 목록
+		- properties?
+			· resource : 파일명
+		- settings?
+		- typeAliases? : VO 등록 위치
+		- environments? : 데이터 베이스 정보
+			· transactionManager : 롤백 여부
+			· dataSource : 데이터 베이스 정보
+		- mappers? : SQL 문장 => include
+			· resource : 파일명
+			· url : 원격 경로
+		
+		*** default 경로 : src/main/java = classpath => 기본값으로 경로명 생략 가능
+	 -->
+	<properties resource="db.properties"/>
+	<typeAliases>
+		<typeAlias type="com.sist.dao.EmpVO" alias="EmpVO"/>
+		<typeAlias type="com.sist.dao.DeptVO" alias="DeptVO"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<!-- 
+				Commit, Rollback
+					1. JDBC => AutoCommit
+					2. MANAGE => 상황에 따라 관리자 처리
+			 -->
+			<dataSource type="POOLED">
+				<!-- 
+					DI 
+					PooledDateSource pool=new PooledDataSource()
+					pool.setDriver("oracle...")
+					=> SqlSessionFactory
+						=> getConnection / disConnection 생성
+				-->
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="com/sist/dao/emp-mapper.xml"/>
+	</mappers>
+</configuration>

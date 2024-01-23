@@ -1,0 +1,90 @@
+package com.sist.model;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sist.controller.RequestMapping;
+import com.sist.vo.*;
+import com.sist.dao.*;
+
+public class SeoulModel {
+	@RequestMapping("seoul/location.do")
+	public String seoul_location(HttpServletRequest request, HttpServletResponse response)
+	{
+		// 1. 요청값 받기
+		String page=request.getParameter("page");
+		if(page==null)
+		{
+			page="1";
+		}
+		int curpage=Integer.parseInt(page);
+		
+		// 2. DB 연동
+		SeoulDAO dao=new SeoulDAO();
+		List<SeoulVO> list=dao.seoulLocationListData(curpage, "seoul_location");
+		int totalpage=dao.seoulLocationTotalPage("seoul_location");
+		
+		request.setAttribute("curpage", curpage);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("list", list);
+		
+		// 3. 결과값 모아서 request에 저장
+		request.setAttribute("main_jsp", "../seoul/location.jsp"); 
+		return "../main/main.jsp"; 
+	}
+	
+
+	@RequestMapping("seoul/nature.do")
+	public String seoul_nature(HttpServletRequest request, HttpServletResponse response)
+	{
+		// 1. 요청값 받기
+		String page=request.getParameter("page");
+		if(page==null)
+		{
+			page="1";
+		}
+		int curpage=Integer.parseInt(page);
+		
+		// 2. DB 연동
+		SeoulDAO dao=new SeoulDAO();
+		System.out.println("seoul-dao="+dao);
+		List<SeoulVO> list=dao.seoulLocationListData(curpage, "seoul_nature");
+		int totalpage=dao.seoulLocationTotalPage("seoul_nature");
+		
+		request.setAttribute("curpage", curpage);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("list", list);
+		
+		// 3. 결과값 모아서 request에 저장
+		request.setAttribute("main_jsp", "../seoul/nature.jsp"); 
+		return "../main/main.jsp"; 
+	}
+	
+	
+	@RequestMapping("seoul/shop.do")
+	public String seoul_shopping(HttpServletRequest request, HttpServletResponse response)
+	{
+		// 1. 요청값 받기
+		String page=request.getParameter("page");
+		if(page==null)
+		{
+			page="1";
+		}
+		int curpage=Integer.parseInt(page);
+		
+		// 2. DB 연동
+		SeoulDAO dao=new SeoulDAO();
+		List<SeoulVO> list=dao.seoulLocationListData(curpage, "seoul_shop");
+		int totalpage=dao.seoulLocationTotalPage("seoul_shop");
+		
+		request.setAttribute("curpage", curpage);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("list", list);
+		
+		// 3. 결과값 모아서 request에 저장
+		request.setAttribute("main_jsp", "../seoul/shop.jsp");
+		return "../main/main.jsp";
+	}
+}
