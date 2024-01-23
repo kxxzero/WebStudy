@@ -7,15 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		int a=100;
-		String jsp="b.jsp";
-		jsp="a.jsp";
-	%>
-	<h1><%=a %></h1>
-	
-	<jsp:include page="b.jsp"></jsp:include>
-	
-	<% pageContext.include("b.jsp"); %>
+  <%
+     int a=100;
+     String jsp="b.jsp";
+     jsp="a.jsp";
+  %>
+  <h1><%=a %></h1>
+  <%-- <%@include file="<%=jsp %>" %> --%>
+  <jsp:include page="<%=jsp %>"></jsp:include>
 </body>
 </html>

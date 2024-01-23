@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	ID : <%= request.getParameter("id") %>
-	<br>
-	PW : <%= request.getParameter("pwd") %>
+ID:<%= request.getParameter("id") %><br>
+PW:<%= request.getParameter("pwd") %>
 </body>
 </html>

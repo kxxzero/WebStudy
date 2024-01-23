@@ -1,6 +1,6 @@
 package com.sist.vo;
 /*
- FNO   NOT NULL NUMBER
+ *    FNO   NOT NULL NUMBER
  POSTER   NOT NULL VARCHAR2(1000)
  NAME    NOT NULL VARCHAR2(300)
  TYPE     NOT NULL VARCHAR2(100)
@@ -19,7 +19,7 @@ public class FoodVO {
     private int fno;
     private String poster,name,type,address,phone,theme,price,time,seat,content;
     private double score;
-    
+	
     public String getContent() {
 		return content;
 	}

@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		int a=100;
-	%>
-	<h1><%=a %></h1>
+  <%
+      int a=10;
+  %>
+  <h1><%=a %></h1>
 </body>
 </html>

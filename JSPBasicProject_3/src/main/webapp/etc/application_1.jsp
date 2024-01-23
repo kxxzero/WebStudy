@@ -7,10 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=application.getRealPath("/") %>
-	<form method=post action="upload.jsp" enctype="multipart/form-data">
-		파일 선택:<input type=file size=20 name=upload>
-		<button>파일 전송</button>
-	</form>
+  <%= application.getRealPath("/") %>
+ <form method=post action="upload.jsp" 
+   enctype="multipart/form-data">
+   파일선택:<input type=file size=20 name=upload>
+  <button>파일전송</button>
+ </form>
+  
 </body>
 </html>

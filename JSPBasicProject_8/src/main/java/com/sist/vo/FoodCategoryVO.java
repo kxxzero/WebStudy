@@ -1,11 +1,9 @@
 package com.sist.vo;
-// Bean 파일
-public class FoodCategoryVO {
 
-	private int cno;
-	private String title, subject;
-	private String poster;
-	
+public class FoodCategoryVO {
+    private int cno;
+    private String title,subject;
+    private String poster;
 	public int getCno() {
 		return cno;
 	}
@@ -30,5 +28,5 @@ public class FoodCategoryVO {
 	public void setPoster(String poster) {
 		this.poster = poster;
 	}
-	
+	   
 }
